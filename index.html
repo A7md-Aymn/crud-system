@@ -1,0 +1,115 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Link to Font Awesome icons library -->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <!-- Link to Bootstrap CSS for styling -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- Link to custom CSS for additional styling -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main>
+      <section>
+        <div class="container bg-info bg-opacity-75 p-2 rounded-4 my-2">
+          <!-- Section Title -->
+          <h1 class="text-center">CRUD SYSTEM</h1>
+
+          <!-- Product Name Input Field -->
+          <div class="form-floating mb-3">
+            <input oninput="validationName()" type="text" class="form-control" id="productName" placeholder=" " />
+            <label for="productName">Product Name</label>
+            <p id="msgName" class="alert alert-danger p-1 small w-50 d-none">
+              It must start with a letter, be 3 to 20 characters long, and can only contain letters, numbers, hyphens,
+              or underscores.
+            </p>
+          </div>
+
+          <!-- Product Price Input Field -->
+          <div class="form-floating mb-3">
+            <input oninput="validationPrice()" type="number" class="form-control" id="productPrice" placeholder=" " />
+            <label for="productPrice">Product Price</label>
+            <p id="msgPrice" class="alert alert-danger p-1 small w-50 d-none">
+              It should be a number with up to 10 digits before the decimal point and up to 2 digits after the decimal
+              (e.g., 100, 49.99, 1234567890.50)
+            </p>
+          </div>
+
+          <!-- Product Category Input Field with Datalist for Options -->
+          <div class="form-floating mb-3">
+            <input
+              oninput="validationCategory()"
+              list="list"
+              type="text"
+              class="form-control"
+              id="productCategory"
+              placeholder=" "
+            />
+            <label for="productCategory">Product Category</label>
+
+            <datalist id="list">
+              <option value="tv" />
+              <option value="mobile" />
+              <option value="screens" />
+              <option value="electronic" />
+            </datalist>
+
+            <p id="msgCategory" class="alert alert-danger p-1 small w-50 d-none">
+              Please select a valid category: mobile, tv, screens, or electronic.
+            </p>
+          </div>
+
+          <!-- Product Description Input Field -->
+          <div class="form-floating mb-3">
+            <textarea
+              oninput="validationDescription()"
+              style="height: 100px"
+              class="form-control"
+              id="productDescription"
+              placeholder=" "
+            ></textarea>
+            <label for="productDescription">Product Description</label>
+
+            <p id="msgDescription" class="alert alert-danger p-1 small w-50 d-none">
+              Please enter a description between 3 and 150 characters. Letters, numbers, punctuation, and spaces are
+              allowed.
+            </p>
+          </div>
+
+          <!-- Product Image Input Field -->
+          <div class="form-floating mb-3">
+            <input type="file" class="form-control" id="productImage" placeholder=" " />
+            <label for="productImage">Product Image</label>
+          </div>
+
+          <!-- Action Buttons: Add and Update Product -->
+          <div>
+            <button onclick="addProduct()" id="btnAdd" class="btn btn-primary btn-sm">Add Product</button>
+            <button onclick="updateData()" id="btnUpdate" class="btn btn-warning btn-sm d-none">Update Product</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="pb-4">
+        <div class="container-fluid">
+          <!-- Search Input Field -->
+          <input
+            oninput="searchData()"
+            id="searchInput"
+            type="search"
+            class="form-control w-50 mx-auto"
+            placeholder="Search By Name...."
+          />
+
+          <!-- Product Display Area -->
+          <div id="rowData" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 my-4 g-4 data border"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Link to external JavaScript file for functionality -->
+    <script src="js/index.js"></script>
+  </body>
+</html>
